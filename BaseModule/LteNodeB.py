@@ -1,7 +1,7 @@
-﻿# -*- coding:utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 '''
-created on : 5/1/2016 11:18:06 AM
-fileName   : LteNodeB.py
-author     : zhbbupt
-TODO       : Lte基站模块
+Created on 2016-06-05 17:28
+summary: 
+author: zhbbupt
 '''
+

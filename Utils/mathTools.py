@@ -1,11 +1,11 @@
-﻿# -*- coding:utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 '''
-created on : 4/29/2016 6:44:38 PM
-fileName   : mathTools.py
-author     : zhbbupt
-TODO       : 
+Created on 2016-06-05 21:53
+summary: my math tools 
+author: zhbbupt
 '''
 import math
+PI=3.14
 def max(a,b):
     if a>b:
         return a

@@ -13,6 +13,7 @@ import ConfigParser
 import string, os, sys
 import pdb 
 from Utils.configTools import loadConfAsDict
+from loadConf import *
 def makeEvironmen(confFile):
     global LOG
     logging.config.fileConfig("logger.conf")
@@ -28,6 +29,7 @@ if __name__=="__main__":
     cf.read("common.conf")
     confDict=loadConfAsDict("eNodeB.conf")
     pdb.set_trace()
+    loadConf("common.conf")
     logging.config.fileConfig("logger.conf")
     LOG = logging.getLogger("root")
     LOG.debug('This is debug message2')

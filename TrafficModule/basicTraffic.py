@@ -32,12 +32,12 @@ class basicTraffic(object):
     status=[1,2]       #当前业务所属状态[w,Wss],w:当前发送窗口大小,Wss当前慢启动门限
     QAM=6       #调制方式，默认2^6，即64QAM，QPSK：2,16QAM：4
 
-    def __init__(self,Config,):
 
-    def __init__(self,delayCommandLevel,maxWss,maxRTOStage):
-        self.delayCommandLevel=delayCommandLevel
-        self.maxWss=maxWss
-        self.maxRTOStage=maxRTOStage
+
+    def __init__(self,Conf):
+        self.delayCommandLevel=Conf["delayCommandLevel"]
+        self.maxWss=Conf["maxWss"]
+        self.maxRTOStage=Conf["maxRTOStage"]
     # 下一个状态
     # 当有发生丢包时，若此时发送窗口非常大且丢包数很少，则认为发生了随机丢包，执行快速恢复/快速重传
     # 算法,此时将发送窗口减半，执行拥塞避免过程;若丢包数量大，则认为网络发生拥塞，TCP会等待重传超时

@@ -19,7 +19,7 @@ def makeEvironmen(confFile):
     logging.config.fileConfig("logger.conf")
     LOG = logging.getLogger("root")
     LOG.debug('This is debug message')
-    LOG.info('This is info message')
+    LOG.info('This is info/ message')
     LOG.warning('This is warning message')
 
 
@@ -28,7 +28,7 @@ if __name__=="__main__":
     cf = ConfigParser.ConfigParser()
     cf.read("common.conf")
     confDict=loadConfAsDict("eNodeB.conf")
-    pdb.set_trace()
+
     loadConf("common.conf")
     logging.config.fileConfig("logger.conf")
     LOG = logging.getLogger("root")

@@ -9,12 +9,13 @@ author: zhbbupt
 from TrafficModule.basicTraffic import basicTraffic
 from PropagationModule.propagationModel import *
 
-def getPathLoss(pathLoss,d):
+def getPathLoss(pathLoss,d,confugure,propModel):
     pathLoss={}
     if d in pathLoss:
-        return pathLoss[a]
+        return pathLoss[d]
     else:
-
+        pathLoss[d]=propModel.calLoss(d,confugure)
+        return pathLoss[d]
 
 def genSingleTraffic(paras,trafficConf):
     '''
@@ -28,6 +29,13 @@ def genSingleTraffic(paras,trafficConf):
         TYPE: 返回业务
     '''
     return 0
+def makeEve(configue):
+    global frequence,recevive_height,transmit_height
+    global scene
+    global transmit_power,tti
+    global simulation_radius
+
+
 
 def genTraffic(configure):
     '''
@@ -44,4 +52,5 @@ def genTraffic(configure):
 
     #根据地形生成传播模型类
     propModel=OkumauraHata()
+
     

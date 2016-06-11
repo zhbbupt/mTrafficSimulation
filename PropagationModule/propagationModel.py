@@ -53,7 +53,7 @@ class OkumauraHata(object):
     # d：距离（km）
     # scene：场景，1:大城市市区，2：中小城市市区，3：郊区，4：农村
     # Cterrain：地形校正因子
-    def calLoss(self,d,scene,Cterrain=0):
+    def calLoss(self,d,scene=1,Cterrain=0):
         if d<=0:
             return 0
         logd=math.log10(d)
@@ -62,6 +62,7 @@ class OkumauraHata(object):
         #loss=69.55+26.16*self.logfc-13.82*self.loghte-Altha_hre+(44.9-6.55*loghte)*logd+Ccell+Cterrain
         loss=69.55+26.16*self.logfc-13.82*self.loghte-Altha_hre+(44.9-6.55*self.loghte)*logd+Ccell+Cterrain
         return loss
+
     def plotModel(self,dLow,dHigh,accuracy,scene=1,Cterrain=0):
         len=dHigh-dLow
         num=int(round(len/accuracy))

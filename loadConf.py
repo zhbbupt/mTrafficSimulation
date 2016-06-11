@@ -36,6 +36,7 @@ class Configure(object):
 
         self.conf["mapConf"]["shape_tpye"]=self.mapConf["map"]["shape_tpye"]
         self.conf["mapConf"]["dictance"]=self.mapConf["map"]["dictance"]
+        self.conf["mapConf"]["scene"]=self.mapConf["map"]["scene"]
 
         self.conf["trafficConf"]["commonTraffic"]={}
         self.conf["trafficConf"]["commonTraffic"]["density"]=self.trafficConf["commonTraffic"]["density"]

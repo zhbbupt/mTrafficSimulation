@@ -17,17 +17,35 @@ import pdb
 from Utils.configTools import loadConfAsDict
 from loadConf import *
 
-import random
-import scipy.stats as ss
-
+from numpy import random
+from scipy.stats import *
+from Utils.plotTools import *
+from scipy import stats
+import cv2
+import sys
+import numpy as np
+import matplotlib.pyplot as plt
 
 def standard_normal_rand():
-    while True:
-        X = random.uniform(-3.0, 3.0)
-        Y = random.uniform(0.0, 0.5)
-        if Y < ss.norm.pdf(X):
-            return X
-    plotLine(X,Y,'r','d/km','Loss/dB',title='OkumauraHata')
+    pf={}
+    for i in range(0,100000):
+        x=round(random.poisson(1),2)
+        if(pf.has_key(x)):
+            pf[x]+=1
+        else:
+            pf[x]=1
+    X=[]
+    Y=[]
+    for i in pf.keys():
+        X.append(i)
+        Y.append(pf[i])
+    #pdb.set_trace()
+    plotPoint(X,Y,'*','d/km','Loss/dB',title='OkumauraHata')
+def standard_normal_rand_2():
+    s = np.random.poisson(5, 100000)
+    #s = np.random.poisson(lam=(100., 500.), size=(100, 2))
+    count, bins, ignored = plt.hist(s, 15, normed=True)
+    plt.show()
 
 
 def makeEvironmen(confFile):
@@ -38,8 +56,19 @@ def makeEvironmen(confFile):
     LOG.info('This is info/ message')
     LOG.warning('This is warning message')
 if __name__ == "__main__":
+
+    conf=Configure("common.conf")
+
+    pdb.set_trace()
+
+    a={"a":10}
+    print(a.has_key("a"))
+    b='a'
+    print(a[b])
+    print('a' in a)
+
     # info=basicTraffic()
-    standard_normal_rand()
+    standard_normal_rand_2()
     cf = ConfigParser.ConfigParser()
     cf.read("common.conf")
     confDict = loadConfAsDict("eNodeB.conf")
@@ -51,4 +80,4 @@ if __name__ == "__main__":
     LOG.info('This is info message2')
     LOG.warning('This is warning message2')
     a = pro.OkumauraHata(1800, 10, 3)
-    a.plotModel(1, 3, 0.01)
+    #a.plotModel(1, 3, 0.01)

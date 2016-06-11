@@ -7,6 +7,15 @@ author: zhbbupt
 
 
 from TrafficModule.basicTraffic import basicTraffic
+from PropagationModule.propagationModel import *
+
+def getPathLoss(pathLoss,d):
+    pathLoss={}
+    if d in pathLoss:
+        return pathLoss[a]
+    else:
+
+
 def genSingleTraffic(paras,trafficConf):
     '''
     Summary: 
@@ -20,15 +29,19 @@ def genSingleTraffic(paras,trafficConf):
     '''
     return 0
 
-def genTraffic(mapConf,trafficConf):
+def genTraffic(configure):
     '''
     Summary: 
         均匀生成业务
     Args:
-        mapConf (dict): 地图配置文件
-        trafficConf(dict): 业务配置文件
-    
+        mapConf (dict): 地图配置信息
+        trafficConf(dict): 业务配置信息
+        baseConf(dict):基站配置信息
     Returns:
         TYPE: Description
     '''
+    #根据配置信息生成环境变量
+
+    #根据地形生成传播模型类
+    propModel=OkumauraHata()
     

@@ -14,3 +14,10 @@ def plotLine(x,y,type='r',xlabel='x',ylabel='y',title='y of x function'):
     plt.plot(x,y,type)
     plt.legend()
     plt.show()
+def plotPoint(x,y,type='*',xlabel='x',ylabel='y',title='y of x function'):
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.plot(x,y,type)
+    plt.legend()
+    plt.show()

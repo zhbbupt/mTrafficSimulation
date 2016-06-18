@@ -8,6 +8,8 @@ author: zhbbupt
 
 from TrafficModule.basicTraffic import basicTraffic
 from PropagationModule.propagationModel import *
+from random import *
+import math
 
 def getPathLoss(pathLoss,d,confugure,propModel):
     pathLoss={}
@@ -29,15 +31,31 @@ def genSingleTraffic(paras,trafficConf):
         TYPE: 返回业务
     '''
     return 0
-def makeEve(configue):
+def makeEve(configue,params):
     global frequence,recevive_height,transmit_height
     global scene
     global transmit_power,tti
-    global simulation_radius
+    global cell_radius
+    global density
+    global traffic_num
+    global rand
+    global PI
+    PI=3.14159
+    frequence=configue.conf["eNodeBConf"]["frequence"]
+    recevive_height=configue.conf["eNodeBConf"]["height"]
+    transmit_height=configue.conf["commonTerminal"]["height"]
+    scene=configue.conf["mapConf"]["scene"]
+    transmit_power=configue.conf["eNodeBConf"]["transmit_power"]
+    tti=configue.conf["eNodeBConf"]["tti"]
+    cell_radius=configue.conf["mapConf"]["dictance"]
+    density=configue.conf["trafficConf"]["commonTraffic"]["density"]
 
+    current_tti=params["currentTTI"]
+    rand=Random()
+    rand.seed(tti)
+    traffic_num=round(rand.gauss(density, density/5))*PI*cell_radius*cell_radius
 
-
-def genTraffic(configure):
+def genTraffic(configure,params):
     '''
     Summary: 
         均匀生成业务
@@ -49,8 +67,18 @@ def genTraffic(configure):
         TYPE: Description
     '''
     #根据配置信息生成环境变量
-
+    makeEve(configure,params)
     #根据地形生成传播模型类
-    propModel=OkumauraHata()
+    propModel=OkumauraHata(frequence,transmit_height,recevive_height)
+    #生成业务
+    trafficList=[]
+    tmp=cell_radius*cell_radius
+    for i in range(1,traffic_num):
+        distance=math.sqrt(random.uniform(0.0001,tmp))
+        loss=propModel.calLoss(distance,scene)
+
+        pass
+
+
 
     

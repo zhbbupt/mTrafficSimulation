@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     conf=Configure("common.conf")
 
-    pdb.set_trace()
+    #pdb.set_trace()
 
     a={"a":10}
     print(a.has_key("a"))
@@ -68,16 +68,20 @@ if __name__ == "__main__":
     print('a' in a)
 
     # info=basicTraffic()
-    standard_normal_rand_2()
+    #standard_normal_rand_2()
     cf = ConfigParser.ConfigParser()
     cf.read("common.conf")
     confDict = loadConfAsDict("eNodeB.conf")
 
+    pdb.set_trace()
+    conf=Configure("common.conf")
+
     loadConf("common.conf")
+
     logging.config.fileConfig("logger.conf")
     LOG = logging.getLogger("root")
     LOG.debug('This is debug message2')
     LOG.info('This is info message2')
     LOG.warning('This is warning message2')
     a = pro.OkumauraHata(1800, 10, 3)
-    #a.plotModel(1, 3, 0.01)
+    a.plotModel(1, 3, 0.01)

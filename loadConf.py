@@ -40,6 +40,9 @@ class Configure(object):
 
         self.conf["trafficConf"]["commonTraffic"]={}
         self.conf["trafficConf"]["commonTraffic"]["density"]=self.trafficConf["commonTraffic"]["density"]
+        self.conf["trafficConf"]["commonTraffic"]["priority"]=self.trafficConf["commonTraffic"]["priority"]
+        self.conf["trafficConf"]["commonTraffic"]["traffic_type"]=self.trafficConf["commonTraffic"]["traffic_type"]
+        
 
         self.conf["eNodeBConf"]["frequence"]=self.eNodeBConf["eNodeB"]["frequence"]
         self.conf["eNodeBConf"]["transmit_power"]=self.eNodeBConf["eNodeB"]["transmit_power"]

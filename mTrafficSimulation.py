@@ -25,7 +25,7 @@ import cv2
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
-
+from src.PathLossTools  import * 
 
 def standard_normal_rand():
     pf = {}
@@ -68,7 +68,22 @@ def makeEvironmen(confFile):
     LOG.warning('This is warning message')
 if __name__ == "__main__":
 
+    params={}
+    params["distance_scope"]=[1,3]
+    params["scene"]=0
+    params["accuracy"]=0.1
+    params["frequence"]=1800
+    params["transmit_height"]=30
+    params["recevive_height"]=3
+    model_name = "OkumauraHata"
+    CaculatePathLoss(model_name, params)
+    path_loss_dict=LoadPathLoss()
+
+    pdb.set_trace()
+
     conf = Configure("common.conf")
+
+
 
     # pdb.set_trace()
 

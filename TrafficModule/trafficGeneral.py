@@ -10,6 +10,7 @@ from TrafficModule.basicTraffic import basicTraffic
 from PropagationModule.propagationModel import *
 from random import *
 import math
+import copy
 
 def getPathLoss(pathLoss,d,confugure,propModel):
     pathLoss={}
@@ -54,18 +55,21 @@ def makeEve(configue,params):
     rand=Random()
     rand.seed(tti)
     traffic_num=round(rand.gauss(density, density/5))*PI*cell_radius*cell_radius
+    traffic_conf=configue.conf["trafficConf"]
+    single_traffic_conf=copy.copy(traffic_conf)
+    
 
 def genTraffic(configure,params):
-    '''
-    Summary: 
-        均匀生成业务
+    """
+    Summary: 生成业务
+    
     Args:
-        mapConf (dict): 地图配置信息
-        trafficConf(dict): 业务配置信息
-        baseConf(dict):基站配置信息
-    Returns:
-        TYPE: Description
-    '''
+        configure (Dict) : 基础配置
+        params (Dict) : 运行参数
+    
+    Returns: 
+        TYPE : Description
+    """
     #根据配置信息生成环境变量
     makeEve(configure,params)
     #根据地形生成传播模型类
@@ -75,6 +79,7 @@ def genTraffic(configure,params):
     tmp=cell_radius*cell_radius
     for i in range(1,traffic_num):
         distance=math.sqrt(random.uniform(0.0001,tmp))
+        theta=random.uniform(0,2*PI)
         loss=propModel.calLoss(distance,scene)
 
         pass

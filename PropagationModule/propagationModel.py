@@ -64,6 +64,18 @@ class OkumauraHata(object):
         return loss
 
     def plotModel(self,dLow,dHigh,accuracy,scene=1,Cterrain=0):
+        """Summary
+        
+        Args:
+            dLow (TYPE): 距离下限
+            dHigh (TYPE): 距离上限
+            accuracy (TYPE): 精度
+            scene (int, optional): 场景
+            Cterrain (int, optional): 环境校正因子
+        
+        Returns:
+            TYPE: Description
+        """
         len=dHigh-dLow
         num=int(round(len/accuracy))
         d=[]

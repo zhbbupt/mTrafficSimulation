@@ -81,7 +81,7 @@ def genTraffic(configure,params):
         distance=math.sqrt(random.uniform(0.0001,tmp))
         theta=random.uniform(0,2*PI)
         loss=propModel.calLoss(distance,scene)
-
+        
         pass
 
 

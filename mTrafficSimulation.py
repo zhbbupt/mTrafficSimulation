@@ -79,7 +79,7 @@ if __name__ == "__main__":
     CaculatePathLoss(model_name, params)
     path_loss_dict=LoadPathLoss()
 
-    pdb.set_trace()
+    #pdb.set_trace()
 
     conf = Configure("common.conf")
 

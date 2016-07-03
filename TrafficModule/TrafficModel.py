@@ -12,12 +12,12 @@ Email   :   zhb_bupt@163.com
 
 
 class nonGBRTraffic(object):
-    data_size = 1
-    package_num = 1
+    # data_size = 1
+    # package_num = 1
 
-    path_loss = 0
+    # path_loss = 0
 
-    level=1
+    # level=1
 
     def __init__(self,traffic_param):
         self.data_size = traffic_param["data_size"]

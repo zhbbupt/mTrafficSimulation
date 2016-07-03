@@ -27,6 +27,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from src.PathLossTools  import * 
 
+from Utils.param import *
+
+
 def standard_normal_rand():
     pf = {}
     for i in range(0, 100000):
@@ -66,7 +69,24 @@ def makeEvironmen(confFile):
     LOG.debug('This is debug message')
     LOG.info('This is info/ message')
     LOG.warning('This is warning message')
+
+
+class A(object):
+    @staticmethod
+    def a():
+        print ("I'm a")
+
+
+
 if __name__ == "__main__":
+
+    mu = 4
+    sigma = 2
+    
+    TrafficParams({})
+    TrafficParams.getInstance()
+    print TrafficParams.getInstance()
+    print TrafficParams.getInstance().getInfo()
 
     params={}
     params["distance_scope"]=[1,3]

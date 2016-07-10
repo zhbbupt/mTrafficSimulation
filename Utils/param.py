@@ -45,3 +45,23 @@ class TrafficParams(BaseParams):
         print TrafficParams._instance
 
 
+class LteParams(BaseParams):
+    _instance = None
+    @staticmethod
+    def getInstance():
+        if LteParams._instance != None:
+            return LteParams._instance
+        else:
+            print "%s hasn't init"%(TrafficParams.__name__)
+    def __init__(self,Lte_param):
+        info = "params  which is used to init LTE eNodeB" if not Lte_param.has_key("info") else Lte_param["info"]
+        super(LteParams,self).__init__(info)
+        self.transmit_power = Lte_param["transmit_power"]
+        self.gain = Lte_param["eNodeB_gain"]
+        self.height = Lte_param["height"]
+        self.frequence = Lte_param["frequence"]
+        self.RB_num =  Lte_param["RB_num"]
+        self.max_user = Lte_param["max_user"]
+
+
+

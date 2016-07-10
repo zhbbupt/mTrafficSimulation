@@ -17,7 +17,8 @@ class BaseParams(object):
 class GaussDistributeParams(BaseParams):
     def __init__(self,mu,sigma,info="Gauss Distribute Params"):
         self.mu = mu
-        self.sigma = sigma 
+        self.sigma = sigma
+        self.distribute_type = "Gauss" 
         super(GaussDistributeParams,self).__init__(info)
 
 
@@ -38,6 +39,8 @@ class TrafficParams(BaseParams):
             sigma = traffic_param["sigma"]
             self.distribute_params = GaussDistributeParams(mu,sigma)
         self.package_size = traffic_param["package_size"]
+        self.traffic_type = traffic_param["traffic_type"]
+        self.level = traffic["level"]
         TrafficParams._instance = self
         print TrafficParams._instance
 

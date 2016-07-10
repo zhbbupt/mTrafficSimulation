@@ -15,7 +15,7 @@ import random
 import math
 
 
-def SingleTrafficGenerator(traffic_param,distribute_param):
+def SingleTrafficGenerator_old(traffic_param,distribute_param):
     distribute_type =  distribute_param["distribute_type"]
     if distribute_type == "Gauss":
         mean = distribute_param["mean"]
@@ -31,7 +31,7 @@ def SingleTrafficGenerator(traffic_param,distribute_param):
     return None
 
 
-def TrafficGenerator(traffic_param,distribute_param):
+def TrafficGenerator_old(traffic_param,distribute_param):
     traffic_num = 0
     distribute_type =  distribute_param["distribute_type"]
     if distribute_type == "Gauss":
@@ -43,7 +43,49 @@ def TrafficGenerator(traffic_param,distribute_param):
     if traffic_type = "nonGBR":
         for i in range(0,traffic_num):
             distribute_param = traffic_param["traffic_distribute_param"]
-            tmp = SingleTrafficGenerator(traffic_param,)
+            tmp = SingleTrafficGenerator(traffic_param,distribute_param)
             traffic_list.append(tmp)
 
     return traffic_list
+
+def SingleTrafficGenerator(traffic_param,distribute_param):
+    distribute_param = traffic_param.distribute_param
+    distribute_type =  distribute_params.distribute_type
+    if distribute_type == "Gauss":
+        mu = distribute_param.mu
+        sigma = distribute_param.sigma
+        traffic_size = int(ceil(random.gauss(mu,sigma)))
+    traffic_general_param = {}
+    if traffic_param.traffic_type == "nonGBR":
+        traffic_general_param["traffic_size"] = traffic_size
+        traffic_general_param["package_size"] = traffic_param.package_size
+        traffic_general_param["package_num"] = int(ceil(traffic_size/float(traffic_param.package_sizei)))
+        traffic_general_param["level"] = traffic_param.level
+        traffic_general_param["delay_tti"] = 0
+        return nonGBRTraffic(traffic_general_param)
+    return None
+
+
+def TrafficGenerator(traffic_param , distribute_param):
+    traffic_num = 0
+    distribute_type =  distribute_param.distribute_type
+    if distribute_type == "Gauss":
+        mu = distribute_param.mu
+        sigma = distribute_param.sigma
+        traffic_num = int(ceil(random.gauss(mu,sigma)))
+    traffic_list = []
+    for i in range(0,traffic_num):
+        distribute_param = traffic_param.distribute_params
+        tmp = SingleTrafficGenerator(traffic_param,distribute_param)
+        traffic_list.append(tmp)
+
+    return traffic_list 
+
+
+
+
+
+
+
+
+

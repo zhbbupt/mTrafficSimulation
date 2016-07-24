@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 from src.PathLossTools  import * 
 
 from Utils.param import *
-
+from Utils.plotTools import *
 
 def standard_normal_rand():
     pf = {}
@@ -48,10 +48,14 @@ def standard_normal_rand():
 
 
 def standard_normal_rand_2():
-    s = np.random.poisson(5, 100000)
+    s = np.random.normal(10,3,10000)
+    #s = np.random.poisson(5, 100000)
     #s = np.random.poisson(lam=(100., 500.), size=(100, 2))
+    
     count, bins, ignored = plt.hist(s, 15, normed=True)
     plt.show()
+
+    plotLine(range(0,len(s)),s)
 
 
 def makeEvironmen(confFile):
@@ -83,10 +87,10 @@ if __name__ == "__main__":
     mu = 4
     sigma = 2
     
-    TrafficParams({})
-    TrafficParams.getInstance()
-    print TrafficParams.getInstance()
-    print TrafficParams.getInstance().getInfo()
+    #TrafficParams({})
+    #TrafficParams.getInstance()
+    #print TrafficParams.getInstance()
+    #print TrafficParams.getInstance().getInfo()
 
     params={}
     params["distance_scope"]=[1,3]

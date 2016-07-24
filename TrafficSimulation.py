@@ -50,6 +50,7 @@ def LTE_traffic_simulation_sample():
     CaculatePathLoss(model_name, params)
     path_loss_dict=LoadPathLoss()
     # 生成业务
+    
     # 计算业务优先级
     # 调度业务
     # 统计数据

@@ -84,6 +84,18 @@ def TrafficGenerator(traffic_param , distribute_param):
 
 
 
+def TrafficGenerator(traffic_param,simulation_param):
+    """
+    Summary: 生成业务，包括业务分布包络分布，时序到达分布，包大小分布
+    
+    Args:
+        traffic_param (TYPE) : Description
+        simulation_param (TYPE) : Description
+    
+    Returns: 
+        TYPE : 时序业务分布
+    """
+
 
 
 

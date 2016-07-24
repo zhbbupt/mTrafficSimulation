@@ -29,7 +29,7 @@ def isFloat(string):
     except ValueError:
         return False
 def dB2val(dB):
-    return math.pow(10,((float)dB/20))
+    return math.pow(10,(float(dB)/20))
 def val2dB(val):
     return 20.0 * math.log10(val)
 

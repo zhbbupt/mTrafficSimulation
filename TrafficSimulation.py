@@ -55,7 +55,7 @@ def gen_traffic_list(time_serial_num,traffic_num,traffic_data_mean_size):
                 i=i+1
     return traffic_entity_list
 
-
+def GeneratePointInCycle(point_num,)
 
 def LTE_traffic_simulation_sample():
     # 加载日志文件
@@ -87,7 +87,7 @@ def LTE_traffic_simulation_sample():
     # 生成业务
     traffic_entity_list=gen_traffic_list(ime_serial_num,traffic_num,traffic_data_mean_size)
     # 撒业务
-    
+
     # 计算业务优先级
     
     # 调度业务

@@ -55,8 +55,16 @@ def gen_traffic_list(time_serial_num,traffic_num,traffic_data_mean_size):
                 i=i+1
     return traffic_entity_list
 
-def GeneratePointInCycle(point_num,)
-
+def GeneratePointInCycle(point_num,radius)
+    #ori_coordinates=[]
+    polo_coordinates=[]
+    for i in range(1, point_num+1):
+        theta = random.random()*2*pi;
+        r = random.uniform(0, radius)**0.5
+        polo_coordinates.append([r,theta])
+        #x = math.sin(theta)* r
+        #y = math.cos(theta)* r
+    return polo_coordinates
 def LTE_traffic_simulation_sample():
     # 加载日志文件
     logging.config.fileConfig("logger.conf")
